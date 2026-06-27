@@ -139,6 +139,10 @@ async function handleRequest(req, res) {
         res.end()
         return
     }
+    if (method === 'GET' && pathname === '/debug-db') {
+        const db = readDB()
+        return sendJSON(res, 200, db)
+    }
 
     sendJSON(res, 404, { error: 'route is not found' })
 }

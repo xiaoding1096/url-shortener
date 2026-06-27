@@ -3,7 +3,7 @@ const url = require('url')
 const fs = require('fs')
 const path = require('path')
 const crypto = require('crypto')
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 const DATABASE_FILE = path.join(process.cwd(), 'database.json')
 function readDB() {
     if (!fs.existsSync(DATABASE_FILE)) return []
